@@ -20,7 +20,7 @@ const DEFAULT_SETTINGS = {
   whatsapp: '',
   cloudinaryApiKey: '532981275657359',
   cloudinaryApiSecret: 'Yo8gx9RRc4Y8OZsEUrufJ5rVKuE',
-  cloudinaryCloudName: ''
+  cloudinaryCloudName: 'hs28bxgs'
 };
 
 const BOTS = [
