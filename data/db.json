@@ -288,8 +288,8 @@
    "bio": "",
    "instagram": "",
    "photos": [
-    "/uploads/984a861ccc0a8ea7.jpg",
-    "/uploads/9572e7d2c7cae4ad.jpg"
+    "https://res.cloudinary.com/hs28bxgs/image/upload/v1794272306/boate-save/w3oaehz0l3yccrblt9ps.jpg",
+    "https://res.cloudinary.com/hs28bxgs/image/upload/v1794272307/boate-save/fzoxqxj79h1qrxcldilf.jpg"
    ],
    "createdAt": "2026-11-09T23:19:35.884Z",
    "banned": false,
@@ -313,7 +313,7 @@
    "bio": "",
    "instagram": "",
    "photos": [
-    "/uploads/415073995c00325d.jpg"
+    "https://res.cloudinary.com/hs28bxgs/image/upload/v1794272309/boate-save/l4ttvx8bi4dxlohfpmwn.jpg"
    ],
    "createdAt": "2026-11-09T23:30:25.215Z",
    "banned": false,
@@ -337,7 +337,7 @@
    "bio": "",
    "instagram": "",
    "photos": [
-    "/uploads/77851a66cad8b99f.jpg"
+    "https://res.cloudinary.com/hs28bxgs/image/upload/v1794272310/boate-save/q7lsgykqaqklib8mzhbl.jpg"
    ],
    "createdAt": "2026-11-10T00:07:34.297Z",
    "banned": false,
@@ -775,6 +775,9 @@
   "adminPassword": "save2026",
   "demoBots": true,
   "instagram": "https://instagram.com/",
-  "whatsapp": ""
+  "whatsapp": "",
+  "cloudinaryCloudName": "hs28bxgs",
+  "cloudinaryApiKey": "532981275657359",
+  "cloudinaryApiSecret": "Yo8gx9RRc4Y8OZsEUrufJ5rVKuE"
  }
 }
