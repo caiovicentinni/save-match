@@ -1,0 +1,780 @@
+{
+ "users": [
+  {
+   "id": "e884a1ecf8639369",
+   "isBot": true,
+   "name": "Juliana",
+   "email": "juliana@demo.save",
+   "pass": null,
+   "birthdate": "2002-09-09",
+   "gender": "f",
+   "interestedIn": "m",
+   "bio": "Carioca da gema, viciada em funk e pista cheia 💃",
+   "instagram": "@juliana.save",
+   "photos": [
+    "https://randomuser.me/api/portraits/women/44.jpg"
+   ],
+   "createdAt": "2026-11-09T23:13:59.236Z",
+   "banned": false,
+   "lgpdConsent": {
+    "accepted": true,
+    "acceptedAt": "2026-11-09T23:13:59.236Z",
+    "ipHash": "legacy",
+    "version": "1.0"
+   }
+  },
+  {
+   "id": "8120aeb0096e9b70",
+   "isBot": true,
+   "name": "Rafa",
+   "email": "rafa@demo.save",
+   "pass": null,
+   "birthdate": "1999-09-09",
+   "gender": "m",
+   "interestedIn": "f",
+   "bio": "DJ nas horas vagas. Me chama pra dançar 🎧",
+   "instagram": "@rafa.save",
+   "photos": [
+    "https://randomuser.me/api/portraits/men/32.jpg"
+   ],
+   "createdAt": "2026-11-09T23:13:59.236Z",
+   "banned": false,
+   "lgpdConsent": {
+    "accepted": true,
+    "acceptedAt": "2026-11-09T23:13:59.236Z",
+    "ipHash": "legacy",
+    "version": "1.0"
+   }
+  },
+  {
+   "id": "1b65b5db28fd955a",
+   "isBot": true,
+   "name": "Camila",
+   "email": "camila@demo.save",
+   "pass": null,
+   "birthdate": "2000-09-09",
+   "gender": "f",
+   "interestedIn": "all",
+   "bio": "Lapa é minha segunda casa. Drinks? 🍹",
+   "instagram": "@camila.save",
+   "photos": [
+    "https://randomuser.me/api/portraits/women/68.jpg"
+   ],
+   "createdAt": "2026-11-09T23:13:59.236Z",
+   "banned": false,
+   "lgpdConsent": {
+    "accepted": true,
+    "acceptedAt": "2026-11-09T23:13:59.236Z",
+    "ipHash": "legacy",
+    "version": "1.0"
+   }
+  },
+  {
+   "id": "fd1b8e5077fb750f",
+   "isBot": true,
+   "name": "Bruno",
+   "email": "bruno@demo.save",
+   "pass": null,
+   "birthdate": "1997-09-09",
+   "gender": "m",
+   "interestedIn": "all",
+   "bio": "Fotógrafo, sorriso fácil e passinho duvidoso",
+   "instagram": "@bruno.save",
+   "photos": [
+    "https://randomuser.me/api/portraits/men/75.jpg"
+   ],
+   "createdAt": "2026-11-09T23:13:59.236Z",
+   "banned": false,
+   "lgpdConsent": {
+    "accepted": true,
+    "acceptedAt": "2026-11-09T23:13:59.236Z",
+    "ipHash": "legacy",
+    "version": "1.0"
+   }
+  },
+  {
+   "id": "0ae35eeb768c862b",
+   "isBot": true,
+   "name": "Larissa",
+   "email": "larissa@demo.save",
+   "pass": null,
+   "birthdate": "2003-09-09",
+   "gender": "f",
+   "interestedIn": "f",
+   "bio": "Só vim pela música... e talvez por você 😏",
+   "instagram": "@larissa.save",
+   "photos": [
+    "https://randomuser.me/api/portraits/women/21.jpg"
+   ],
+   "createdAt": "2026-11-09T23:13:59.236Z",
+   "banned": false,
+   "lgpdConsent": {
+    "accepted": true,
+    "acceptedAt": "2026-11-09T23:13:59.236Z",
+    "ipHash": "legacy",
+    "version": "1.0"
+   }
+  },
+  {
+   "id": "36be234825327c53",
+   "isBot": true,
+   "name": "Thiago",
+   "email": "thiago@demo.save",
+   "pass": null,
+   "birthdate": "2001-09-09",
+   "gender": "m",
+   "interestedIn": "m",
+   "bio": "Pop, eletrônico e muito glitter ✨",
+   "instagram": "@thiago.save",
+   "photos": [
+    "https://randomuser.me/api/portraits/men/46.jpg"
+   ],
+   "createdAt": "2026-11-09T23:13:59.236Z",
+   "banned": false,
+   "lgpdConsent": {
+    "accepted": true,
+    "acceptedAt": "2026-11-09T23:13:59.236Z",
+    "ipHash": "legacy",
+    "version": "1.0"
+   }
+  },
+  {
+   "id": "8928434fe810b17e",
+   "isBot": true,
+   "name": "Bia",
+   "email": "bia@demo.save",
+   "pass": null,
+   "birthdate": "2004-09-09",
+   "gender": "f",
+   "interestedIn": "m",
+   "bio": "Estudante de design. Me pague um gin 😅",
+   "instagram": "@bia.save",
+   "photos": [
+    "https://randomuser.me/api/portraits/women/12.jpg"
+   ],
+   "createdAt": "2026-11-09T23:13:59.236Z",
+   "banned": false,
+   "lgpdConsent": {
+    "accepted": true,
+    "acceptedAt": "2026-11-09T23:13:59.236Z",
+    "ipHash": "legacy",
+    "version": "1.0"
+   }
+  },
+  {
+   "id": "80fb9061a43a4a68",
+   "isBot": true,
+   "name": "Lucas",
+   "email": "lucas@demo.save",
+   "pass": null,
+   "birthdate": "1996-09-09",
+   "gender": "m",
+   "interestedIn": "f",
+   "bio": "Engenheiro de dia, dançarino de madrugada",
+   "instagram": "@lucas.save",
+   "photos": [
+    "https://randomuser.me/api/portraits/men/11.jpg"
+   ],
+   "createdAt": "2026-11-09T23:13:59.236Z",
+   "banned": false,
+   "lgpdConsent": {
+    "accepted": true,
+    "acceptedAt": "2026-11-09T23:13:59.236Z",
+    "ipHash": "legacy",
+    "version": "1.0"
+   }
+  },
+  {
+   "id": "e39bac426ec8521b",
+   "isBot": true,
+   "name": "Mari",
+   "email": "mari@demo.save",
+   "pass": null,
+   "birthdate": "1998-09-09",
+   "gender": "f",
+   "interestedIn": "all",
+   "bio": "Signo? Pergunta na pista 🔮",
+   "instagram": "@mari.save",
+   "photos": [
+    "https://randomuser.me/api/portraits/women/90.jpg"
+   ],
+   "createdAt": "2026-11-09T23:13:59.236Z",
+   "banned": false,
+   "lgpdConsent": {
+    "accepted": true,
+    "acceptedAt": "2026-11-09T23:13:59.236Z",
+    "ipHash": "legacy",
+    "version": "1.0"
+   }
+  },
+  {
+   "id": "1f0cc57b8c6ec53e",
+   "isBot": true,
+   "name": "Pedro",
+   "email": "pedro@demo.save",
+   "pass": null,
+   "birthdate": "2002-09-09",
+   "gender": "m",
+   "interestedIn": "all",
+   "bio": "Novo no Rio, me mostra a Lapa?",
+   "instagram": "@pedro.save",
+   "photos": [
+    "https://randomuser.me/api/portraits/men/64.jpg"
+   ],
+   "createdAt": "2026-11-09T23:13:59.236Z",
+   "banned": false,
+   "lgpdConsent": {
+    "accepted": true,
+    "acceptedAt": "2026-11-09T23:13:59.236Z",
+    "ipHash": "legacy",
+    "version": "1.0"
+   }
+  },
+  {
+   "id": "e38bdcee83cb4d87",
+   "isBot": true,
+   "name": "Nanda",
+   "email": "nanda@demo.save",
+   "pass": null,
+   "birthdate": "1999-09-09",
+   "gender": "f",
+   "interestedIn": "m",
+   "bio": "Rindo alto perto do bar 🍸",
+   "instagram": "@nanda.save",
+   "photos": [
+    "https://randomuser.me/api/portraits/women/33.jpg"
+   ],
+   "createdAt": "2026-11-09T23:13:59.236Z",
+   "banned": false,
+   "lgpdConsent": {
+    "accepted": true,
+    "acceptedAt": "2026-11-09T23:13:59.236Z",
+    "ipHash": "legacy",
+    "version": "1.0"
+   }
+  },
+  {
+   "id": "3192a2dc9333f67f",
+   "isBot": true,
+   "name": "Gabi",
+   "email": "gabi@demo.save",
+   "pass": null,
+   "birthdate": "2001-09-09",
+   "gender": "nb",
+   "interestedIn": "all",
+   "bio": "Arte, techno e boas conversas 🖤",
+   "instagram": "@gabi.save",
+   "photos": [
+    "https://randomuser.me/api/portraits/women/57.jpg"
+   ],
+   "createdAt": "2026-11-09T23:13:59.236Z",
+   "banned": false,
+   "lgpdConsent": {
+    "accepted": true,
+    "acceptedAt": "2026-11-09T23:13:59.236Z",
+    "ipHash": "legacy",
+    "version": "1.0"
+   }
+  },
+  {
+   "id": "3aac67cde779c47a",
+   "isBot": false,
+   "name": "Caio Ramos",
+   "email": "c.vicentinni@gmail.com",
+   "pass": "29e5cc8228485ea9834cc82d5cf69f20:fc35b9d687215618c1a1be4d7fbc654f9841a1423644616d36f13ab88381c053cde1ecf1420a539e9b48dfccbb026ac501eb28890df04089d36e3a659c0e7666",
+   "birthdate": "1992-12-09",
+   "gender": "nb",
+   "interestedIn": "all",
+   "bio": "",
+   "instagram": "",
+   "photos": [
+    "/uploads/984a861ccc0a8ea7.jpg",
+    "/uploads/9572e7d2c7cae4ad.jpg"
+   ],
+   "createdAt": "2026-11-09T23:19:35.884Z",
+   "banned": false,
+   "notifications": true,
+   "lgpdConsent": {
+    "accepted": true,
+    "acceptedAt": "2026-11-09T23:19:35.884Z",
+    "ipHash": "legacy",
+    "version": "1.0"
+   }
+  },
+  {
+   "id": "b40e174207c55ef8",
+   "isBot": false,
+   "name": "cindy",
+   "email": "contatocindyfairy@gmail.com",
+   "pass": "914d5cd57d7d4d8416c68d6104282c3e:e6acb18d572164abecaac106f69f5905364c54c8aa0fa13197c97cb0e38c478b8bc9f192f773e4dc3c8687d585794ad4fd7cf3d9f487ef165c19dd48eba5d6eb",
+   "birthdate": "1997-08-20",
+   "gender": "f",
+   "interestedIn": "all",
+   "bio": "",
+   "instagram": "",
+   "photos": [
+    "/uploads/415073995c00325d.jpg"
+   ],
+   "createdAt": "2026-11-09T23:30:25.215Z",
+   "banned": false,
+   "notifications": true,
+   "lgpdConsent": {
+    "accepted": true,
+    "acceptedAt": "2026-11-09T23:30:25.215Z",
+    "ipHash": "legacy",
+    "version": "1.0"
+   }
+  },
+  {
+   "id": "54020dab961de262",
+   "isBot": false,
+   "name": "Rayane da vinhosa",
+   "email": "contatocindyfairy@gmail.comm",
+   "pass": "46746d8695944f5debe4e76a1024d495:b60beba6ea65d5cf6cbd1266e75abe385ce0664b7f9148994dcc9e730ba24cf0b08745a368ac640d84a72c461c1e4a8613cae02e76f00b0fe4e6c9d40bb9dcc4",
+   "birthdate": "1992-11-09",
+   "gender": "f",
+   "interestedIn": "all",
+   "bio": "",
+   "instagram": "",
+   "photos": [
+    "/uploads/77851a66cad8b99f.jpg"
+   ],
+   "createdAt": "2026-11-10T00:07:34.297Z",
+   "banned": false,
+   "notifications": true,
+   "lgpdConsent": {
+    "accepted": true,
+    "acceptedAt": "2026-11-10T00:07:34.297Z",
+    "ipHash": "5088c4611feba4ce",
+    "version": "1.0"
+   }
+  }
+ ],
+ "sessions": {
+  "b8d165e694c22c21bda59eb65b5ccd3416fe0124dce310bf": {
+   "userId": "3aac67cde779c47a",
+   "role": "user",
+   "createdAt": "2026-11-09T23:19:35.885Z"
+  },
+  "77151cc80fdd1bb06dfbdcebb0bc424b9500b2917c763787": {
+   "userId": "admin",
+   "role": "admin",
+   "createdAt": "2026-11-09T23:27:18.032Z"
+  },
+  "6c9a6f49b7f0a46cbceaa25818721bda6f6760161b5d120b": {
+   "userId": "b40e174207c55ef8",
+   "role": "user",
+   "createdAt": "2026-11-09T23:30:25.216Z"
+  },
+  "a5696f0a68470996e492e0555bbc035aa6f3200dcc85946a": {
+   "userId": "3aac67cde779c47a",
+   "role": "user",
+   "createdAt": "2026-11-09T23:42:20.021Z"
+  },
+  "a5858f01bb80fcb7fd804a3700736fd36ed42989100b6e591d2de92fac3cc4cd": {
+   "userId": "3aac67cde779c47a",
+   "role": "user",
+   "createdAt": "2026-11-09T23:57:41.005Z"
+  },
+  "bbb25d3dafac66f95d940ed3554fa0ef070f1ee230b74cbdadb8d34838fb388d": {
+   "userId": "admin",
+   "role": "admin",
+   "createdAt": "2026-11-09T23:58:33.022Z"
+  },
+  "a84751af561574a1588daf445db9c72f3b453c755a2ea653062f8cafa9458141": {
+   "userId": "54020dab961de262",
+   "role": "user",
+   "createdAt": "2026-11-10T00:07:34.298Z"
+  }
+ },
+ "swipes": [
+  {
+   "from": "1b65b5db28fd955a",
+   "to": "3aac67cde779c47a",
+   "action": "like",
+   "at": "2026-11-09T23:28:23.210Z"
+  },
+  {
+   "from": "3192a2dc9333f67f",
+   "to": "3aac67cde779c47a",
+   "action": "like",
+   "at": "2026-11-09T23:28:28.496Z"
+  },
+  {
+   "from": "fd1b8e5077fb750f",
+   "to": "3aac67cde779c47a",
+   "action": "like",
+   "at": "2026-11-09T23:28:37.554Z"
+  },
+  {
+   "from": "3aac67cde779c47a",
+   "to": "1b65b5db28fd955a",
+   "action": "nope",
+   "at": "2026-11-09T23:28:42.266Z"
+  },
+  {
+   "from": "3aac67cde779c47a",
+   "to": "1f0cc57b8c6ec53e",
+   "action": "nope",
+   "at": "2026-11-09T23:28:43.423Z"
+  },
+  {
+   "from": "3aac67cde779c47a",
+   "to": "fd1b8e5077fb750f",
+   "action": "nope",
+   "at": "2026-11-09T23:28:44.762Z"
+  },
+  {
+   "from": "b40e174207c55ef8",
+   "to": "1f0cc57b8c6ec53e",
+   "action": "like",
+   "at": "2026-11-09T23:31:03.443Z"
+  },
+  {
+   "from": "b40e174207c55ef8",
+   "to": "8120aeb0096e9b70",
+   "action": "nope",
+   "at": "2026-11-09T23:31:04.705Z"
+  },
+  {
+   "from": "1f0cc57b8c6ec53e",
+   "to": "b40e174207c55ef8",
+   "action": "like",
+   "at": "2026-11-09T23:31:04.911Z"
+  },
+  {
+   "from": "80fb9061a43a4a68",
+   "to": "b40e174207c55ef8",
+   "action": "like",
+   "at": "2026-11-09T23:31:09.996Z"
+  },
+  {
+   "from": "8120aeb0096e9b70",
+   "to": "b40e174207c55ef8",
+   "action": "like",
+   "at": "2026-11-09T23:31:27.870Z"
+  },
+  {
+   "from": "b40e174207c55ef8",
+   "to": "80fb9061a43a4a68",
+   "action": "nope",
+   "at": "2026-11-09T23:31:33.597Z"
+  },
+  {
+   "from": "3aac67cde779c47a",
+   "to": "3192a2dc9333f67f",
+   "action": "nope",
+   "at": "2026-11-09T23:31:49.102Z"
+  },
+  {
+   "from": "3aac67cde779c47a",
+   "to": "e39bac426ec8521b",
+   "action": "nope",
+   "at": "2026-11-09T23:31:50.347Z"
+  },
+  {
+   "from": "b40e174207c55ef8",
+   "to": "fd1b8e5077fb750f",
+   "action": "like",
+   "at": "2026-11-09T23:31:57.107Z"
+  },
+  {
+   "from": "fd1b8e5077fb750f",
+   "to": "b40e174207c55ef8",
+   "action": "like",
+   "at": "2026-11-09T23:31:58.030Z"
+  },
+  {
+   "from": "3aac67cde779c47a",
+   "to": "b40e174207c55ef8",
+   "action": "like",
+   "at": "2026-11-09T23:37:52.679Z"
+  },
+  {
+   "from": "b40e174207c55ef8",
+   "to": "3aac67cde779c47a",
+   "action": "like",
+   "at": "2026-11-09T23:38:12.231Z"
+  },
+  {
+   "from": "1f0cc57b8c6ec53e",
+   "to": "54020dab961de262",
+   "action": "like",
+   "at": "2026-11-10T00:08:00.720Z"
+  },
+  {
+   "from": "8120aeb0096e9b70",
+   "to": "54020dab961de262",
+   "action": "like",
+   "at": "2026-11-10T00:08:02.200Z"
+  },
+  {
+   "from": "fd1b8e5077fb750f",
+   "to": "54020dab961de262",
+   "action": "like",
+   "at": "2026-11-10T00:08:14.123Z"
+  }
+ ],
+ "matches": [
+  {
+   "id": "91ab78463c61a027",
+   "users": [
+    "b40e174207c55ef8",
+    "1f0cc57b8c6ec53e"
+   ],
+   "createdAt": "2026-11-09T23:31:04.911Z",
+   "active": true
+  },
+  {
+   "id": "f83771ec15fe8eb1",
+   "users": [
+    "b40e174207c55ef8",
+    "fd1b8e5077fb750f"
+   ],
+   "createdAt": "2026-11-09T23:31:58.030Z",
+   "active": true
+  },
+  {
+   "id": "9652c49635287a6e",
+   "users": [
+    "b40e174207c55ef8",
+    "3aac67cde779c47a"
+   ],
+   "createdAt": "2026-11-09T23:38:12.231Z",
+   "active": true
+  }
+ ],
+ "messages": [
+  {
+   "id": "d527eddeaca6f5b4",
+   "matchId": "9652c49635287a6e",
+   "from": "3aac67cde779c47a",
+   "text": "Oi! Tô aqui na pista 👋",
+   "createdAt": "2026-11-09T23:42:25.923Z",
+   "readAt": "2026-11-09T23:42:37.106Z"
+  },
+  {
+   "id": "a1b8459583d5eb08",
+   "matchId": "9652c49635287a6e",
+   "from": "b40e174207c55ef8",
+   "text": "oiii",
+   "createdAt": "2026-11-09T23:42:40.152Z",
+   "readAt": "2026-11-09T23:42:40.222Z"
+  }
+ ],
+ "events": [
+  {
+   "id": "0dc0288df89515d6",
+   "title": "SAVE FRIDAY",
+   "subtitle": "Pop • Funk • Hits",
+   "start": "2026-11-14T02:00:00.000Z",
+   "end": "2026-11-14T08:00:00.000Z",
+   "color": "#c501e2",
+   "lineup": [
+    "DJ Lia Neon",
+    "MC Lapa",
+    "Residentes SAVE"
+   ],
+   "price": "R$ 40 (lista até 0h) / R$ 60",
+   "description": "A sexta mais animada da Lapa. Open bar de vodka até 00h30 para quem estiver na lista VIP pelo app.",
+   "flyer": null,
+   "ticketUrl": "",
+   "vipEnabled": true,
+   "vipLimit": 200,
+   "featured": true,
+   "createdAt": "2026-11-09T23:13:59.236Z"
+  },
+  {
+   "id": "68d1025e936e5e6f",
+   "title": "SATURDAY NIGHT SAVE",
+   "subtitle": "Eletrônico • House",
+   "start": "2026-11-15T02:00:00.000Z",
+   "end": "2026-11-15T08:00:00.000Z",
+   "color": "#35ACE8",
+   "lineup": [
+    "Kiko Beats",
+    "Marina V",
+    "B2B Residentes"
+   ],
+   "price": "R$ 50 / R$ 80 (camarote)",
+   "description": "Sábado de pista cheia com house e eletrônico até o sol nascer.",
+   "flyer": null,
+   "ticketUrl": "",
+   "vipEnabled": true,
+   "vipLimit": 200,
+   "featured": false,
+   "createdAt": "2026-11-09T23:13:59.236Z"
+  },
+  {
+   "id": "0374a6a70f4b9fc2",
+   "title": "BAILE DA SAVE",
+   "subtitle": "Funk 150 BPM",
+   "start": "2026-11-21T02:00:00.000Z",
+   "end": "2026-11-21T08:00:00.000Z",
+   "color": "#f82d97",
+   "lineup": [
+    "DJ Thai",
+    "MC Convidado Surpresa"
+   ],
+   "price": "R$ 40 / R$ 60",
+   "description": "O baile mais quente do Centro. Vista seu melhor look neon!",
+   "flyer": null,
+   "ticketUrl": "",
+   "vipEnabled": true,
+   "vipLimit": 200,
+   "featured": false,
+   "createdAt": "2026-11-09T23:13:59.236Z"
+  },
+  {
+   "id": "0870243fc9cbb013",
+   "title": "NEON PARTY",
+   "subtitle": "Festa temática • Glow",
+   "start": "2026-11-22T02:00:00.000Z",
+   "end": "2026-11-22T08:00:00.000Z",
+   "color": "#2ef8a0",
+   "lineup": [
+    "DJ Glow",
+    "Lia Neon",
+    "Performances"
+   ],
+   "price": "R$ 60 / R$ 90",
+   "description": "Pinturas neon, pulseiras de LED e muito brilho. Use branco ou neon!",
+   "flyer": null,
+   "ticketUrl": "",
+   "vipEnabled": true,
+   "vipLimit": 200,
+   "featured": false,
+   "createdAt": "2026-11-09T23:13:59.236Z"
+  },
+  {
+   "id": "c52617096da5643b",
+   "title": "SAVE ANIVERSARIANTES",
+   "subtitle": "Aniversariantes do mês",
+   "start": "2026-11-28T02:00:00.000Z",
+   "end": "2026-11-28T08:00:00.000Z",
+   "color": "#E8B432",
+   "lineup": [
+    "Residentes SAVE"
+   ],
+   "price": "Aniversariante free + 5 amigos na lista",
+   "description": "Aniversariante do mês entra free e ganha espumante. Peça sua lista VIP pelo app.",
+   "flyer": null,
+   "ticketUrl": "",
+   "vipEnabled": true,
+   "vipLimit": 200,
+   "featured": false,
+   "createdAt": "2026-11-09T23:13:59.236Z"
+  }
+ ],
+ "rsvps": [],
+ "vip": [],
+ "announcements": [
+  {
+   "id": "18c5ef6508bdef8b",
+   "type": "promo",
+   "title": "Bem-vindo ao SAVE Match! 💜",
+   "body": "Faça check-in na entrada da boate e descubra quem está na pista agora mesmo.",
+   "createdAt": "2026-11-09T23:13:59.236Z"
+  },
+  {
+   "id": "25bbe6bf2c1f4fec",
+   "type": "event",
+   "title": "Lista VIP liberada",
+   "body": "Coloque seu nome na lista dos próximos eventos direto na aba Agenda.",
+   "createdAt": "2026-11-09T22:13:59.236Z"
+  }
+ ],
+ "reports": [],
+ "blocks": [],
+ "checkins": {
+  "e884a1ecf8639369": {
+   "at": "2026-11-09T23:13:59.241Z",
+   "expiresAt": "2026-11-10T23:13:59.241Z",
+   "method": "demo"
+  },
+  "8120aeb0096e9b70": {
+   "at": "2026-11-09T23:13:59.241Z",
+   "expiresAt": "2026-11-10T23:13:59.241Z",
+   "method": "demo"
+  },
+  "1b65b5db28fd955a": {
+   "at": "2026-11-09T23:13:59.241Z",
+   "expiresAt": "2026-11-10T23:13:59.241Z",
+   "method": "demo"
+  },
+  "fd1b8e5077fb750f": {
+   "at": "2026-11-09T23:13:59.241Z",
+   "expiresAt": "2026-11-10T23:13:59.241Z",
+   "method": "demo"
+  },
+  "0ae35eeb768c862b": {
+   "at": "2026-11-09T23:13:59.241Z",
+   "expiresAt": "2026-11-10T23:13:59.241Z",
+   "method": "demo"
+  },
+  "36be234825327c53": {
+   "at": "2026-11-09T23:13:59.241Z",
+   "expiresAt": "2026-11-10T23:13:59.241Z",
+   "method": "demo"
+  },
+  "8928434fe810b17e": {
+   "at": "2026-11-09T23:13:59.241Z",
+   "expiresAt": "2026-11-10T23:13:59.241Z",
+   "method": "demo"
+  },
+  "80fb9061a43a4a68": {
+   "at": "2026-11-09T23:13:59.241Z",
+   "expiresAt": "2026-11-10T23:13:59.241Z",
+   "method": "demo"
+  },
+  "e39bac426ec8521b": {
+   "at": "2026-11-09T23:13:59.241Z",
+   "expiresAt": "2026-11-10T23:13:59.241Z",
+   "method": "demo"
+  },
+  "1f0cc57b8c6ec53e": {
+   "at": "2026-11-09T23:13:59.241Z",
+   "expiresAt": "2026-11-10T23:13:59.241Z",
+   "method": "demo"
+  },
+  "e38bdcee83cb4d87": {
+   "at": "2026-11-09T23:13:59.241Z",
+   "expiresAt": "2026-11-10T23:13:59.241Z",
+   "method": "demo"
+  },
+  "3192a2dc9333f67f": {
+   "at": "2026-11-09T23:13:59.241Z",
+   "expiresAt": "2026-11-10T23:13:59.241Z",
+   "method": "demo"
+  },
+  "3aac67cde779c47a": {
+   "at": "2026-11-09T23:28:11.609Z",
+   "expiresAt": "2026-11-10T07:28:11.609Z",
+   "method": "qr"
+  },
+  "b40e174207c55ef8": {
+   "at": "2026-11-09T23:31:00.500Z",
+   "expiresAt": "2026-11-10T07:31:00.500Z",
+   "method": "qr"
+  },
+  "54020dab961de262": {
+   "at": "2026-11-10T00:07:50.001Z",
+   "expiresAt": "2026-11-10T08:07:50.001Z",
+   "method": "qr"
+  }
+ },
+ "settings": {
+  "venueName": "Boate Save",
+  "venueAddress": "Rua Gomes Freire, 595 - Lapa, Rio de Janeiro - RJ",
+  "venueLat": -22.9118,
+  "venueLng": -43.1836,
+  "venueRadius": 150,
+  "enforceGps": false,
+  "checkinCode": "SAVE2026",
+  "checkinHours": 8,
+  "adminPassword": "save2026",
+  "demoBots": true,
+  "instagram": "https://instagram.com/",
+  "whatsapp": ""
+ }
+}

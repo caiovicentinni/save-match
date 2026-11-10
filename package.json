@@ -1,0 +1,20 @@
+{
+  "name": "save-match",
+  "version": "1.0.0",
+  "description": "SAVE Match - app de relacionamento em tempo real e canal oficial da Boate Save (Rua Gomes Freire, 595 - Lapa, RJ)",
+  "main": "server/index.js",
+  "private": true,
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "reset": "node server/reset.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "qrcode": "^1.5.4",
+    "socket.io": "^4.8.1"
+  }
+}

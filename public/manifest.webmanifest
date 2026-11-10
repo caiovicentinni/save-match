@@ -1,0 +1,15 @@
+{
+  "name": "SAVE Match • Boate Save",
+  "short_name": "SAVE Match",
+  "description": "Descubra quem está na pista da Boate Save, dê match em tempo real e confira a agenda.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b0612",
+  "theme_color": "#0b0612",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "/img/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
