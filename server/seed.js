@@ -17,7 +17,10 @@ const DEFAULT_SETTINGS = {
   adminPassword: 'save2026',   // TROQUE em Admin > Configurações
   demoBots: true,
   instagram: 'https://instagram.com/',
-  whatsapp: ''
+  whatsapp: '',
+  cloudinaryApiKey: '532981275657359',
+  cloudinaryApiSecret: 'Yo8gx9RRc4Y8OZsEUrufJ5rVKuE',
+  cloudinaryCloudName: ''
 };
 
 const BOTS = [

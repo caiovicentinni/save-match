@@ -119,6 +119,24 @@ const otherOf = (m, uid) => m.users.find(x => x !== uid);
 const err = (res, code, msg) => res.status(code).json({ error: msg });
 
 /* Validação segura de magic bytes de imagens */
+const cloudinary = require('cloudinary').v2;
+
+function isCloudinaryActive() {
+  const cloudName = process.env.CLOUDINARY_CLOUD_NAME || db.settings.cloudinaryCloudName;
+  const apiKey = process.env.CLOUDINARY_API_KEY || db.settings.cloudinaryApiKey || '532981275657359';
+  const apiSecret = process.env.CLOUDINARY_API_SECRET || db.settings.cloudinaryApiSecret || 'Yo8gx9RRc4Y8OZsEUrufJ5rVKuE';
+  if (cloudName && apiKey && apiSecret) {
+    cloudinary.config({
+      cloud_name: cloudName,
+      api_key: apiKey,
+      api_secret: apiSecret,
+      secure: true
+    });
+    return true;
+  }
+  return false;
+}
+
 function validateImageMagicBytes(buf) {
   if (!buf || buf.length < 12) return false;
   // JPEG: FF D8 FF
@@ -131,13 +149,30 @@ function validateImageMagicBytes(buf) {
   return false;
 }
 
-function saveDataUrl(dataUrl) {
+async function saveDataUrl(dataUrl) {
   const m = /^data:image\/(png|jpe?g|webp);base64,(.+)$/.exec(dataUrl || '');
   if (!m) throw new Error('Formato de imagem inválido');
   const buf = Buffer.from(m[2], 'base64');
   if (buf.length > 6 * 1024 * 1024) throw new Error('Imagem muito grande (máximo 6MB)');
   const verifiedExt = validateImageMagicBytes(buf);
   if (!verifiedExt) throw new Error('Arquivo de imagem adulterado ou corrompido');
+
+  // Armazenamento em nuvem permanente (Cloudinary CDN)
+  if (isCloudinaryActive()) {
+    try {
+      const uploadRes = await cloudinary.uploader.upload(dataUrl, {
+        folder: 'boate-save',
+        transformation: [
+          { width: 1080, height: 1350, crop: 'limit' },
+          { quality: 'auto', fetch_format: 'auto' }
+        ]
+      });
+      return uploadRes.secure_url;
+    } catch (e) {
+      console.error('Erro no Cloudinary, usando fallback local:', e.message);
+    }
+  }
+
   const file = `${id()}.${verifiedExt}`;
   fs.writeFileSync(path.join(UPLOAD_DIR, file), buf);
   return `/uploads/${file}`;
@@ -394,11 +429,12 @@ app.delete('/api/me', auth, (req, res) => {
   res.json({ success: true, message: 'Conta e todos os dados pessoais associados foram permanentemente eliminados conforme a LGPD.' });
 });
 
-app.post('/api/me/photos', auth, (req, res) => {
+app.post('/api/me/photos', auth, async (req, res) => {
   const u = req.user;
   if ((u.photos || []).length >= 6) return err(res, 400, 'Máximo de 6 fotos');
   try {
-    u.photos = [...(u.photos || []), saveDataUrl(req.body.dataUrl)];
+    const uploadedUrl = await saveDataUrl(req.body.dataUrl);
+    u.photos = [...(u.photos || []), uploadedUrl];
     save();
     res.json({ user: selfUser(u) });
   } catch (e) { err(res, 400, e.message); }
@@ -653,7 +689,7 @@ app.get('/api/admin/stats', adminAuth, (req, res) => res.json(stats()));
 
 app.get('/api/admin/settings', adminAuth, (req, res) => res.json({ settings: S() }));
 app.put('/api/admin/settings', adminAuth, (req, res) => {
-  const allowed = ['venueName', 'venueAddress', 'venueLat', 'venueLng', 'venueRadius', 'enforceGps', 'checkinCode', 'checkinHours', 'adminPassword', 'demoBots', 'instagram', 'whatsapp'];
+  const allowed = ['venueName', 'venueAddress', 'venueLat', 'venueLng', 'venueRadius', 'enforceGps', 'checkinCode', 'checkinHours', 'adminPassword', 'demoBots', 'instagram', 'whatsapp', 'cloudinaryCloudName', 'cloudinaryApiKey', 'cloudinaryApiSecret'];
   for (const k of allowed) if (req.body[k] !== undefined) {
     let v = req.body[k];
     if (['venueLat', 'venueLng', 'venueRadius', 'checkinHours'].includes(k)) v = Number(v);
@@ -677,8 +713,8 @@ app.get('/api/admin/checkin-qr', adminAuth, async (req, res) => {
   res.json({ url, qr: await QRCode.toDataURL(url, { margin: 2, width: 600, color: { dark: '#12051a', light: '#ffffff' } }) });
 });
 
-app.post('/api/admin/upload', adminAuth, (req, res) => {
-  try { res.json({ url: saveDataUrl(req.body.dataUrl) }); } catch (e) { err(res, 400, e.message); }
+app.post('/api/admin/upload', adminAuth, async (req, res) => {
+  try { res.json({ url: await saveDataUrl(req.body.dataUrl) }); } catch (e) { err(res, 400, e.message); }
 });
 
 app.get('/api/admin/events', adminAuth, (req, res) => {
