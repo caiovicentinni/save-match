@@ -428,9 +428,16 @@ function connectSocket() {
   s.on('connect_error', () => {});
   s.on('presence:count', setLive);
   s.on('deck:add', u => {
-    if (state.deck.some(c => c.id === u.id) || u.id === state.user?.id) return;
-    state.deck.push(u);
-    if (state.tab === 'pista' && $('#deck') && state.deck.length <= 3) drawDeck();
+    if (u.id === state.user?.id) return;
+    const existingIdx = state.deck.findIndex(c => c.id === u.id);
+    if (existingIdx >= 0) {
+      state.deck[existingIdx] = u;
+      if (state.tab === 'pista' && $('#deck')) drawDeck();
+      return;
+    }
+    if (!u.isBot) state.deck.unshift(u);
+    else state.deck.push(u);
+    if (state.tab === 'pista' && $('#deck')) drawDeck();
     if (state.tab === 'pista' && !$('#deck') && state.user?.checkin) renderPista();
   });
   s.on('deck:remove', id => {
@@ -639,12 +646,18 @@ function drawDeck() {
       <h3 class="h2">Procurando gente na pista...</h3>
       <p class="muted small" style="margin:0;max-width:280px">Você já viu todos os perfis compatíveis no momento. Assim que alguém fizer check-in na Save, aparece aqui na hora. ✨</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
+        <button class="btn btn-primary btn-sm" id="reset-nopes">🔄 Rever perfis da pista</button>
         <button class="btn btn-ghost btn-sm" id="adjust-prefs">⚙️ Ajustar preferências</button>
-        <button class="btn btn-primary btn-sm" id="to-matches">Ver meus matches</button>
+        <button class="btn btn-ghost btn-sm" id="to-matches">Ver meus matches</button>
       </div>
     </div>`;
     $('#to-matches').onclick = () => switchTab('matches');
     $('#adjust-prefs').onclick = editPrefs;
+    $('#reset-nopes').onclick = async () => {
+      await api('/swipe/reset-nopes', { method: 'POST' });
+      state.deckLoaded = false;
+      renderPista();
+    };
     $('#actions')?.classList.add('hidden');
     return;
   }

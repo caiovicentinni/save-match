@@ -103,14 +103,14 @@ function publicUser(u, extra = {}) {
   if (!u) return null;
   return {
     id: u.id, name: u.name, age: ageOf(u.birthdate), gender: u.gender, bio: u.bio || '',
-    photos: u.photos || [], here: isCheckedIn(u.id), ...extra
+    photos: u.photos || [], here: isCheckedIn(u.id), isBot: !!u.isBot, ...extra
   };
 }
 function selfUser(u) {
   const { pass, ...rest } = u;
   return { ...rest, age: ageOf(u.birthdate), checkin: isCheckedIn(u.id) ? db.checkins[u.id] : null };
 }
-const wants = (a, b) => a.interestedIn === 'all' || a.interestedIn === b.gender;
+const wants = (a, b) => a.interestedIn === 'all' || b.gender === 'nb' || a.interestedIn === b.gender;
 const compatible = (a, b) => wants(a, b) && wants(b, a);
 const blockedBetween = (a, b) => db.blocks.some(x => (x.from === a && x.to === b) || (x.from === b && x.to === a));
 const swiped = (from, to) => db.swipes.find(s => s.from === from && s.to === to);
@@ -219,8 +219,10 @@ function broadcastPresence() {
 function emitAdminStats() { io.to('admins').emit('admin:stats', stats()); }
 
 function canSee(viewer, target) {
-  return viewer.id !== target.id && !target.banned && isCheckedIn(target.id) &&
-    compatible(viewer, target) && !blockedBetween(viewer.id, target.id) && !swiped(viewer.id, target.id);
+  if (viewer.id === target.id || target.banned || !isCheckedIn(target.id)) return false;
+  if (blockedBetween(viewer.id, target.id) || swiped(viewer.id, target.id)) return false;
+  // Usuários reais na pista sempre podem se ver (ordenados por compatibilidade primeiro); bots seguem filtro estrito
+  return !target.isBot || compatible(viewer, target);
 }
 function notifyArrival(u) {
   for (const otherId of checkedInIds()) {
@@ -233,7 +235,8 @@ function notifyLeave(uid) {
 }
 
 function doCheckin(u, method) {
-  const hours = Number(S().checkinHours) || 8;
+  const hours = Math.max(Number(S().checkinHours) || 24, 24);
+  u.manualCheckout = false;
   db.checkins[u.id] = { at: now(), expiresAt: new Date(Date.now() + hours * 3600e3).toISOString(), method };
   save();
   notifyArrival(u);
@@ -242,6 +245,8 @@ function doCheckin(u, method) {
 }
 function doCheckout(uid) {
   if (!db.checkins[uid]) return;
+  const u = userById(uid);
+  if (u) u.manualCheckout = true;
   delete db.checkins[uid];
   save();
   notifyLeave(uid);
@@ -304,13 +309,22 @@ function botReply(bot, m) {
   }, 2200 + Math.random() * 2000);
 }
 function ensureBotsPresent() {
-  if (!S().demoBots) return;
-  db.users.filter(u => u.isBot).forEach(b => {
-    if (!isCheckedIn(b.id)) {
-      const hours = 24;
-      db.checkins[b.id] = { at: now(), expiresAt: new Date(Date.now() + hours * 3600e3).toISOString(), method: 'demo' };
-    }
-  });
+  if (S().demoBots) {
+    db.users.filter(u => u.isBot).forEach(b => {
+      if (!isCheckedIn(b.id)) {
+        const hours = 48;
+        db.checkins[b.id] = { at: now(), expiresAt: new Date(Date.now() + hours * 3600e3).toISOString(), method: 'demo' };
+      }
+    });
+  }
+  if (!S().enforceGps) {
+    db.users.filter(u => !u.isBot && !u.banned && !u.manualCheckout).forEach(u => {
+      if (!isCheckedIn(u.id)) {
+        const hours = 48;
+        db.checkins[u.id] = { at: now(), expiresAt: new Date(Date.now() + hours * 3600e3).toISOString(), method: 'auto' };
+      }
+    });
+  }
   save();
 }
 ensureBotsPresent();
@@ -357,8 +371,8 @@ app.post('/api/register', registerLimiter, (req, res) => {
     }
   };
   db.users.push(u);
-  save();
-  emitAdminStats();
+  if (!S().enforceGps) doCheckin(u, 'auto');
+  else { save(); emitAdminStats(); }
   res.json({ token: newSession(u.id), user: selfUser(u) });
 });
 
@@ -367,12 +381,16 @@ app.post('/api/login', loginLimiter, (req, res) => {
   const u = db.users.find(x => x.email === String(email || '').trim().toLowerCase());
   if (!u || !checkPass(password, u.pass)) return err(res, 401, 'E-mail ou senha incorretos');
   if (u.banned) return err(res, 403, 'Sua conta foi suspensa pela equipe SAVE.');
+  if (!S().enforceGps && !isCheckedIn(u.id)) doCheckin(u, 'auto');
   res.json({ token: newSession(u.id), user: selfUser(u) });
 });
 
 app.post('/api/logout', auth, (req, res) => { delete db.sessions[req.token]; save(); res.json({ ok: true }); });
 
-app.get('/api/me', auth, (req, res) => res.json({ user: selfUser(req.user), likes: likesReceived(req.user.id) }));
+app.get('/api/me', auth, (req, res) => {
+  if (!S().enforceGps && !isCheckedIn(req.user.id) && !req.user.manualCheckout) doCheckin(req.user, 'auto');
+  res.json({ user: selfUser(req.user), likes: likesReceived(req.user.id) });
+});
 
 app.put('/api/me', auth, (req, res) => {
   const u = req.user;
@@ -384,6 +402,7 @@ app.put('/api/me', auth, (req, res) => {
   if (interestedIn) u.interestedIn = interestedIn;
   if (notifications !== undefined) u.notifications = !!notifications;
   save();
+  if (isCheckedIn(u.id)) notifyArrival(u);
   res.json({ user: selfUser(u) });
 });
 
@@ -435,7 +454,8 @@ app.post('/api/me/photos', auth, async (req, res) => {
   try {
     const uploadedUrl = await saveDataUrl(req.body.dataUrl);
     u.photos = [...(u.photos || []), uploadedUrl];
-    save();
+    if (!S().enforceGps && !isCheckedIn(u.id)) doCheckin(u, 'auto');
+    else { save(); if (isCheckedIn(u.id)) notifyArrival(u); }
     res.json({ user: selfUser(u) });
   } catch (e) { err(res, 400, e.message); }
 });
@@ -506,11 +526,27 @@ app.post('/api/checkout', auth, (req, res) => { doCheckout(req.user.id); res.jso
 /* ------------------------------ API: Deck / Swipe ------------------------------ */
 app.get('/api/deck', auth, (req, res) => {
   const me = req.user;
+  if (!isCheckedIn(me.id) && !S().enforceGps && !me.manualCheckout) doCheckin(me, 'auto');
   if (!isCheckedIn(me.id)) return res.json({ checkedIn: false, cards: [] });
   const likedMe = new Set(db.swipes.filter(s => s.to === me.id && s.action !== 'nope').map(s => s.from));
   const cards = db.users.filter(o => canSee(me, o))
-    .map(o => publicUser(o, { superLikedMe: db.swipes.some(s => s.from === o.id && s.to === me.id && s.action === 'super') }))
-    .sort((a, b) => (b.superLikedMe - a.superLikedMe) || (likedMe.has(b.id) - likedMe.has(a.id)) || Math.random() - 0.5);
+    .map(o => publicUser(o, {
+      superLikedMe: db.swipes.some(s => s.from === o.id && s.to === me.id && s.action === 'super'),
+      isCompatible: compatible(me, o)
+    }))
+    .sort((a, b) =>
+      // 1. Pessoas reais sempre antes dos bots de demonstração
+      (a.isBot - b.isBot) ||
+      // 2. Quem me deu Super Save primeiro
+      (b.superLikedMe - a.superLikedMe) ||
+      // 3. Quem já me curtiu primeiro
+      (likedMe.has(b.id) - likedMe.has(a.id)) ||
+      // 4. Pessoas reais compatíveis com a preferência primeiro
+      (b.isCompatible - a.isCompatible) ||
+      // 5. Pessoas reais com foto primeiro
+      ((b.photos?.length ? 1 : 0) - (a.photos?.length ? 1 : 0)) ||
+      (Math.random() - 0.5)
+    );
   res.json({ checkedIn: true, cards, likes: likesReceived(me.id) });
 });
 
@@ -548,6 +584,12 @@ app.post('/api/swipe/undo', auth, (req, res) => {
   save();
   const t = userById(last.to);
   res.json({ card: t && canSee(req.user, t) ? publicUser(t) : null });
+});
+
+app.post('/api/swipe/reset-nopes', auth, (req, res) => {
+  db.swipes = db.swipes.filter(s => !(s.from === req.user.id && s.action === 'nope'));
+  save();
+  res.json({ ok: true });
 });
 
 /* ------------------------------ API: Matches & Chat ------------------------------ */

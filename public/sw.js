@@ -1,5 +1,5 @@
 // Service Worker: cache do "app shell" para abrir rápido e funcionar como app instalado
-const CACHE = 'save-match-v3';
+const CACHE = 'save-match-v4';
 const SHELL = ['/', '/styles.css', '/app.js', '/img/logo.svg', '/img/logo-white.svg', '/img/icon.svg', '/manifest.webmanifest'];
 
 self.addEventListener('install', e => {
